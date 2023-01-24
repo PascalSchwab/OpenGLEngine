@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <string>
 #include "main.h"
+#include "inputManager.h"
 
 using namespace std;
 
@@ -22,6 +23,8 @@ class Window{
         int width;
         int height;
         string title;
+        static void errorCallback(int error, const char* description);
+        static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 };
 
 #endif

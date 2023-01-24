@@ -1,10 +1,12 @@
 # Headers
 HEADERS += main.h
 HEADERS += window.h
+HEADERS += inputManager.h
 
 # Objects
 OBJECTS += main.o
 OBJECTS += window.o
+OBJECTS += inputManager.o
 
 # Target
 TARGET += $(BIN_DIR)/engine

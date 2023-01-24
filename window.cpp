@@ -14,7 +14,12 @@ Window::~Window(){
 
 StatusCode Window::Init(){
     // GLFW Initialisation
-    glfwInit();
+    if(!glfwInit()){
+        cout << "Failed to init GLFW" << endl;
+        return ERROR;
+    }
+
+    glfwSetErrorCallback(Window::errorCallback);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -27,13 +32,17 @@ StatusCode Window::Init(){
         return ERROR;
     }
 
+    glfwSetKeyCallback(this->window, InputManager::KeyCallback);
+    glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
     glfwMakeContextCurrent(this->window);
+    glfwSwapInterval(1);
 
     cout << "Window was created" << endl;
     return OK;
 }
 
 StatusCode Window::Destroy(){
+    glfwDestroyWindow(this->window);
     glfwTerminate();
     cout << "Window was destroyed" << endl;
     return OK;
@@ -53,4 +62,12 @@ int Window::GetHeight(){
 
 string Window::GetTitle(){
     return this->title;
+}
+
+void Window::errorCallback(int error, const char* description){
+    cout << stderr << "Error: %s\n" << description << endl;
+}
+
+void Window::framebufferSizeCallback(GLFWwindow* window, int width, int height){
+    //glViewport(0, 0, width, height);
 }
