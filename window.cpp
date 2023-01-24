@@ -36,7 +36,7 @@ StatusCode Window::Init(){
     glfwMakeContextCurrent(this->window);
     glfwSwapInterval(1);
 
-    //glViewport(0, 0, this->width, this->height);
+    glViewport(0, 0, this->width, this->height);
     glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
 
     cout << "Window was created" << endl;
@@ -71,5 +71,5 @@ void Window::errorCallback(int error, const char* description){
 }
 
 void Window::framebufferSizeCallback(GLFWwindow* window, int width, int height){
-    //glViewport(0, 0, width, height);
+    glViewport(0, 0, width, height);
 }

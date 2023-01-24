@@ -7,7 +7,6 @@ HEADERS += inputManager.h
 OBJECTS += main.o
 OBJECTS += window.o
 OBJECTS += inputManager.o
-OBJECTS += glad.o
 
 # Target
 TARGET += $(BIN_DIR)/engine
@@ -21,7 +20,7 @@ SHELL = /bin/bash
 BIN_DIR = bin
 CFLAGS = -g -Wall
 
-LINKING = -ldl -lglfw -lglut
+LINKING = -ldl -lglfw -lglut -lGL
 
 # Default Target
 all: $(BIN_DIR) $(TARGET)
@@ -29,7 +28,6 @@ all: $(BIN_DIR) $(TARGET)
 # Build
 %.o : %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) $<
-	$(CC) -c $(CFLAGS) glad.c
 
 # Binaries
 $(TARGET) : $(OBJECTS)
