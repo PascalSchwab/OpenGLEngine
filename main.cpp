@@ -1,9 +1,25 @@
 #include <iostream>
-#include "add.h"
-#include "person.h"
+
+#include <GLFW/glfw3.h>
+#include "window.h"
+#include "main.h"
 
 int main(){
-    Person p1(10, "Pascal");
-    std::cout << p1.GetAge() << std::endl;
-    return 0;
+    StatusCode status = OK;
+
+    Window window(800, 600, "Engine");
+
+    if(window.Init() == ERROR){
+        window.Destroy();
+        return status;
+    }
+
+    while(!glfwWindowShouldClose(window.GetWindow()))
+    {
+        glfwSwapBuffers(window.GetWindow());
+        glfwPollEvents();
+    }
+
+    window.Destroy();
+    return status;
 }

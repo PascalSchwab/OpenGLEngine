@@ -1,11 +1,10 @@
 # Headers
-HEADERS += add.h
-HEADERS += person.h
+HEADERS += main.h
+HEADERS += window.h
 
 # Objects
-OBJECTS += add.o
 OBJECTS += main.o
-OBJECTS += person.o
+OBJECTS += window.o
 
 # Target
 TARGET += $(BIN_DIR)/engine
@@ -18,6 +17,8 @@ SHELL = /bin/bash
 BIN_DIR = bin
 CFLAGS = -g -Wall
 
+LINKING = -ldl -lglfw
+
 # Default Target
 all: $(BIN_DIR) $(TARGET)
 
@@ -27,7 +28,7 @@ all: $(BIN_DIR) $(TARGET)
 
 # Binaries
 $(TARGET) : $(OBJECTS)
-	$(CXX) $(CFLAGS) -o $@ $(OBJECTS)
+	$(CXX) $(CFLAGS) -o $@ $(OBJECTS) $(LINKING)
 	$(RM_DIR) $(OBJECTS)
 
 $(BIN_DIR):
