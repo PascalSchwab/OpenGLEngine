@@ -33,9 +33,11 @@ StatusCode Window::Init(){
     }
 
     glfwSetKeyCallback(this->window, InputManager::KeyCallback);
-    glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
     glfwMakeContextCurrent(this->window);
     glfwSwapInterval(1);
+
+    //glViewport(0, 0, this->width, this->height);
+    glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
 
     cout << "Window was created" << endl;
     return OK;
