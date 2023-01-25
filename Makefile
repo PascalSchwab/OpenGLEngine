@@ -2,7 +2,6 @@
 HEADERS += main.h
 HEADERS += window.h
 HEADERS += inputManager.h
-HEADERS += vector.h
 HEADERS += vector2.h
 HEADERS += vector3.h
 HEADERS += vector4.h
@@ -11,10 +10,6 @@ HEADERS += vector4.h
 OBJECTS += main.o
 OBJECTS += window.o
 OBJECTS += inputManager.o
-OBJECTS += vector.o
-OBJECTS += vector2.o
-OBJECTS += vector3.o
-OBJECTS += vector4.o
 
 # Target
 TARGET += $(BIN_DIR)/engine
