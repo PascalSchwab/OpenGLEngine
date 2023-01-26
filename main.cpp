@@ -3,7 +3,7 @@
 #include "window.h"
 #include "main.h"
 #include "inputManager.h"
-#include "vector2.h"
+#include "triangle.h"
 
 using namespace std;
 
@@ -17,13 +17,7 @@ int main(){
         return status;
     }
 
-    Vector2<int> v(10,10);
-    Vector2<int> v2(10,10);
-
-    if(v == v2){
-        cout << "Yeah" << endl;
-    }
-
+    Triangle t({-0.5f,-0.5f,0.0f}, {0.5f,-0.5f,0.0f}, {0.0f,0.5f,0.0f});
 
     while(!glfwWindowShouldClose(window.GetWindow()))
     {

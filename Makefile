@@ -5,11 +5,13 @@ HEADERS += inputManager.h
 HEADERS += vector2.h
 HEADERS += vector3.h
 HEADERS += vector4.h
+HEADERS += triangle.h
 
 # Objects
 OBJECTS += main.o
 OBJECTS += window.o
 OBJECTS += inputManager.o
+OBJECTS += triangle.o
 
 # Target
 TARGET += $(BIN_DIR)/engine

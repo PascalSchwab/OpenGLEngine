@@ -4,6 +4,9 @@
 template <typename Type>
 class Vector4{
     public:
+        Vector4(){
+            
+        }
         Vector4(Type x, Type y, Type z, Type a){
             this->x = x;
             this->y = y;
