@@ -17,7 +17,10 @@ int main(){
         return status;
     }
 
-    Triangle t({-0.5f,-0.5f,0.0f}, {0.5f,-0.5f,0.0f}, {0.0f,0.5f,0.0f});
+    Triangle triangle({-0.5f,-0.5f,0.0f}, {0.5f,-0.5f,0.0f}, {0.0f,0.5f,0.0f});
+
+    float vertices[9];
+    triangle.ExtractVerticeData(vertices);
 
     while(!glfwWindowShouldClose(window.GetWindow()))
     {
