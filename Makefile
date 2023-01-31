@@ -1,5 +1,4 @@
 # Headers
-HEADERS += main.h
 HEADERS += window.h
 HEADERS += inputManager.h
 HEADERS += vector2.h
@@ -8,6 +7,9 @@ HEADERS += vector4.h
 HEADERS += triangle.h
 HEADERS += glad.h
 HEADERS += khrplatform.h
+HEADERS += shader.h
+HEADERS += shaderProgram.h
+HEADERS += ioManager.h
 
 # Objects
 OBJECTS += main.o
@@ -15,6 +17,9 @@ OBJECTS += window.o
 OBJECTS += inputManager.o
 OBJECTS += triangle.o
 OBJECTS += glad.o
+OBJECTS += shader.o
+OBJECTS += shaderProgram.o
+OBJECTS += ioManager.o
 
 # Target
 TARGET += $(BIN_DIR)/engine

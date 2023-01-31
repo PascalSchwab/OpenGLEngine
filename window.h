@@ -3,7 +3,6 @@
 
 #include <GLFW/glfw3.h>
 #include <string>
-#include "main.h"
 #include "inputManager.h"
 
 using namespace std;
@@ -12,8 +11,7 @@ class Window{
     public:
         Window(int width, int height, string title);
         ~Window();
-        StatusCode Init();
-        StatusCode Destroy();
+        void Delete();
         GLFWwindow* GetWindow();
         int GetWidth();
         int GetHeight();
