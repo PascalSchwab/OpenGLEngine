@@ -22,9 +22,9 @@ int main(){
 
     // VAO / VBO
     unsigned int VAO, VBO;
-    glGenVertexArrays(1, &VAO);
+    //glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
-    glBindVertexArray(VAO);
+    //glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -43,7 +43,7 @@ int main(){
         glClear(GL_COLOR_BUFFER_BIT);
         // Render
         glUseProgram(shaderProgram.id);
-        glBindVertexArray(VAO);
+        glBindVertexArray(window.GetVertexArrayBuffer());
         glDrawArrays(GL_TRIANGLES, 0, 3);
         // End
         glfwSwapBuffers(window.GetWindow());

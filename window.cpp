@@ -40,6 +40,10 @@ Window::Window(int width, int height, string title){
     glViewport(0, 0, this->width, this->height);
     glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
 
+    // Set VertexArrayBuffer
+    glGenVertexArrays(1, &this->vertexArrayBuffer);
+    glBindVertexArray(this->vertexArrayBuffer);
+
     cout << "Window was created" << endl;
 }
 
@@ -66,6 +70,10 @@ int Window::GetHeight(){
 
 string Window::GetTitle(){
     return this->title;
+}
+
+unsigned int Window::GetVertexArrayBuffer(){
+    return this->vertexArrayBuffer;
 }
 
 void Window::errorCallback(int error, const char* description){
