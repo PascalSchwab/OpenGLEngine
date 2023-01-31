@@ -1,3 +1,4 @@
+#include "glad.h"
 #include "window.h"
 #include <iostream>
 using namespace std;
@@ -26,14 +27,19 @@ StatusCode Window::Init(){
 
     this->window = glfwCreateWindow(this->width, this->height, this->title.data(), NULL, NULL);
 
-    if (this->window == NULL)
-    {
+    if (this->window == NULL){
         cout << "Failed to create GLFW window" << endl;
         return ERROR;
     }
 
-    glfwSetKeyCallback(this->window, InputManager::KeyCallback);
     glfwMakeContextCurrent(this->window);
+
+    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+        cout << "Failed to init GLAD" << endl;
+        return ERROR;
+    }
+
+    glfwSetKeyCallback(this->window, InputManager::KeyCallback);
     glfwSwapInterval(1);
 
     glViewport(0, 0, this->width, this->height);

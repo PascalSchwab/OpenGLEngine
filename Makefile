@@ -6,12 +6,15 @@ HEADERS += vector2.h
 HEADERS += vector3.h
 HEADERS += vector4.h
 HEADERS += triangle.h
+HEADERS += glad.h
+HEADERS += khrplatform.h
 
 # Objects
 OBJECTS += main.o
 OBJECTS += window.o
 OBJECTS += inputManager.o
 OBJECTS += triangle.o
+OBJECTS += glad.o
 
 # Target
 TARGET += $(BIN_DIR)/engine
