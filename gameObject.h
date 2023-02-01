@@ -18,6 +18,7 @@ class GameObject{
         unsigned int GetId();
     protected:
         unsigned int vertexBufferObject;
+        unsigned int vertexArrayObject;
         float* vertices;
     private:
         unsigned int id;

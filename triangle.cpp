@@ -7,4 +7,5 @@ Triangle::Triangle(unsigned int id, GameObjectType type, float* vertices, Shader
 
 void Triangle::Draw(){
     GameObject::Draw();
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }

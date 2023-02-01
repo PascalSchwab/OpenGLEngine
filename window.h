@@ -15,13 +15,11 @@ class Window{
         int GetWidth();
         int GetHeight();
         string GetTitle();
-        unsigned int GetVertexArrayObject();
     private:
         GLFWwindow* window;
         int width;
         int height;
         string title;
-        unsigned int vertexArrayObject;
         static void errorCallback(int error, const char* description);
         static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 };
