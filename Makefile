@@ -10,6 +10,7 @@ HEADERS += khrplatform.h
 HEADERS += shader.h
 HEADERS += shaderProgram.h
 HEADERS += ioManager.h
+HEADERS += gameObject.h
 
 # Objects
 OBJECTS += main.o
@@ -20,6 +21,7 @@ OBJECTS += glad.o
 OBJECTS += shader.o
 OBJECTS += shaderProgram.o
 OBJECTS += ioManager.o
+OBJECTS += gameObject.o
 
 # Target
 TARGET += $(BIN_DIR)/engine

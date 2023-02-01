@@ -2,13 +2,12 @@
 #define __TRIANGLE__
 
 #include "vector3.h"
+#include "gameObject.h"
 
-class Triangle{
+class Triangle : GameObject{
     public:
-        Triangle(Vector3<float> v1, Vector3<float> v2, Vector3<float> v3);
-        float* ExtractVerticeData(float vertices[]);
-    private:
-        Vector3<float> vertices[3];
+        Triangle(unsigned int id, GameObjectType type, float* vertices, ShaderProgram* shaderProgram = NULL);
+        void Draw() override;
 };
 
 #endif

@@ -10,21 +10,23 @@
 using namespace std;
 
 int main(){
-    IOManager ioManager;
     InputManager inputManager;
+    IOManager ioManager;
 
     Window window(800, 600, "Engine");
+
     ShaderProgram shaderProgram(&ioManager, "shaders/shader.vert", "shaders/shader.frag");
 
-    float vertices[] = {
-        -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f
+    float vertices[9] = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f
     };
 
-    // VAO / VBO
-    unsigned int VAO, VBO;
-    //glGenVertexArrays(1, &VAO);
+    // Triangle triangle(0, StaticObject, vertices);
+
+    unsigned int VBO;
     glGenBuffers(1, &VBO);
-    //glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -42,18 +44,15 @@ int main(){
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         // Render
+        glBindVertexArray(window.GetVertexArrayObject());
         glUseProgram(shaderProgram.id);
-        glBindVertexArray(window.GetVertexArrayBuffer());
         glDrawArrays(GL_TRIANGLES, 0, 3);
         // End
         glfwSwapBuffers(window.GetWindow());
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     shaderProgram.Delete();
-
-    window.Delete();
     return 0;
 }

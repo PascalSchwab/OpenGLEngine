@@ -41,16 +41,14 @@ Window::Window(int width, int height, string title){
     glfwSetFramebufferSizeCallback(this->window, Window::framebufferSizeCallback);
 
     // Set VertexArrayBuffer
-    glGenVertexArrays(1, &this->vertexArrayBuffer);
-    glBindVertexArray(this->vertexArrayBuffer);
+    glGenVertexArrays(1, &this->vertexArrayObject);
+    glBindVertexArray(this->vertexArrayObject);
 
     cout << "Window was created" << endl;
 }
 
 Window::~Window(){
-}
-
-void Window::Delete(){
+    glDeleteVertexArrays(1, &this->vertexArrayObject);
     glfwDestroyWindow(this->window);
     glfwTerminate();
     cout << "Window was destroyed" << endl;
@@ -72,8 +70,8 @@ string Window::GetTitle(){
     return this->title;
 }
 
-unsigned int Window::GetVertexArrayBuffer(){
-    return this->vertexArrayBuffer;
+unsigned int Window::GetVertexArrayObject(){
+    return this->vertexArrayObject;
 }
 
 void Window::errorCallback(int error, const char* description){
