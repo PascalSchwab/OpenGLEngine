@@ -3,7 +3,7 @@
 #include <iostream>
 #include "window.h"
 #include "inputManager.h"
-#include "triangle.h"
+#include "rectangle.h"
 #include "shaderProgram.h"
 #include "ioManager.h"
 
@@ -13,17 +13,19 @@ int main(){
     InputManager inputManager;
     Window window(800, 600, "Engine");
 
-    float vertices[9] = {
-        -0.5f, -0.5f, 0.0f,
+    float vertices[12] = {
+        0.5f, 0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
-        0.0f, 0.5f, 0.0f
+        -0.5f, -0.5f, 0.0f,
+        -0.5f, 0.5f, 0.0f
     };
 
-    unsigned int indices[3] = {
-        0,1,2
+    unsigned int indices[6] = {
+        0,1,3,
+        1,2,3
     };
 
-    Triangle triangle(0, StaticObject, vertices, indices);
+    Rectangle rectangle(0, StaticObject, vertices, indices);
 
     while(!glfwWindowShouldClose(window.GetWindow()))
     {
@@ -31,7 +33,7 @@ int main(){
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         // Render
-        triangle.Draw();
+        rectangle.Draw();
         // End
         glfwSwapBuffers(window.GetWindow());
         glfwPollEvents();

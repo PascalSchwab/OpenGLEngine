@@ -1,7 +1,6 @@
 #ifndef __TRIANGLE__
 #define __TRIANGLE__
 
-#include "vector3.h"
 #include "gameObject.h"
 
 class Triangle : GameObject{

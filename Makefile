@@ -11,6 +11,7 @@ HEADERS += shader.h
 HEADERS += shaderProgram.h
 HEADERS += ioManager.h
 HEADERS += gameObject.h
+HEADERS += rectangle.h
 
 # Objects
 OBJECTS += main.o
@@ -22,6 +23,7 @@ OBJECTS += shader.o
 OBJECTS += shaderProgram.o
 OBJECTS += ioManager.o
 OBJECTS += gameObject.o
+OBJECTS += rectangle.o
 
 # Target
 TARGET += $(BIN_DIR)/engine
