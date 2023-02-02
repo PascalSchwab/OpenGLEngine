@@ -11,7 +11,7 @@ enum GameObjectType{
 
 class GameObject{
     public:
-        GameObject(unsigned int id, GameObjectType type, float* vertices, unsigned int verticeCount, ShaderProgram* shaderProgram = NULL);
+        GameObject(unsigned int id, GameObjectType type, float* vertices, unsigned int verticeCount, unsigned int* indices, unsigned int indiceCount, ShaderProgram* shaderProgram = NULL);
         ~GameObject();
         float* GetVertices();
         virtual void Draw();
@@ -19,11 +19,14 @@ class GameObject{
     protected:
         unsigned int vertexBufferObject;
         unsigned int vertexArrayObject;
+        unsigned int elementBufferObject;
         float* vertices;
+        unsigned int* indices;
+        unsigned int indiceCount;
+        unsigned int verticeCount;
     private:
         unsigned int id;
         GameObjectType gameObjectType;
-        unsigned int verticeCount;
         ShaderProgram* shaderProgram;
 };
 

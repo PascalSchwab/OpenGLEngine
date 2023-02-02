@@ -6,7 +6,7 @@
 
 class Triangle : GameObject{
     public:
-        Triangle(unsigned int id, GameObjectType type, float* vertices, ShaderProgram* shaderProgram = NULL);
+        Triangle(unsigned int id, GameObjectType type, float* vertices, unsigned int* indices, ShaderProgram* shaderProgram = NULL);
         void Draw() override;
 };
 

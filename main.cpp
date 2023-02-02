@@ -19,7 +19,11 @@ int main(){
         0.0f, 0.5f, 0.0f
     };
 
-    Triangle triangle(0, StaticObject, vertices);
+    unsigned int indices[3] = {
+        0,1,2
+    };
+
+    Triangle triangle(0, StaticObject, vertices, indices);
 
     while(!glfwWindowShouldClose(window.GetWindow()))
     {
